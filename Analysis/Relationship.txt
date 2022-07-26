@@ -1,0 +1,22 @@
+Student<N====M>course
+department<1===M>course
+teacher<1===M>cours
+============================
+Student model has these characteristics: 
+[Student ID, Name, Date of Birth, Gender, Address, Phone]
+
+Course Model has these properties:
+ [Course ID, Course Name, Course Hours, Price, Start Date, 
+End Date] 
+
+Teacher Model has these properties: 
+[Teacher ID, Name, Date of Birth, Date of Employment, 
+Gender, Address, Phone
+ 
+Student Course Model has the following characteristics: 
+[Student ID, Course ID, Grade "Mark", Student Status (PassFailed), Total Payment] 
+
+
+Department Model has the following characteristics: 
+[Department ID, Department Name, Department 
+Description] 

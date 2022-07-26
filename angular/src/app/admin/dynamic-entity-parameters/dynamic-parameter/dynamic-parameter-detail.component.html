@@ -1,0 +1,48 @@
+<div [@routerTransition]>
+    <div class="content d-flex flex-column flex-column-fluid">
+        <sub-header [title]="'DynamicParameterDetail' | localize" [breadcrumbs]="breadcrumbs">
+            <div role="actions">
+                <button class="btn btn-primary btn-sm"
+                        *ngIf="'Pages.Administration.DynamicParameters.Edit' | permission"
+                        (click)="editDynamicParameter()">
+                    {{'Edit' | localize}}
+                </button>
+
+                <button class="btn btn-danger btn-sm"
+                        *ngIf="'Pages.Administration.DynamicParameters.Delete' | permission"
+                        (click)="deleteDynamicParameter()">
+                    {{'Delete' | localize}}
+                </button>
+            </div>
+        </sub-header>
+
+        <div [class]="containerClass">
+            <div class="card card-custom gutter-b">
+                <div class="card-body">
+                    <table class="table border-0 m-0">
+                        <tr>
+                            <td class="font-weight-bold text-right border-0" style="width:300px">
+                                {{"ParameterName" | localize}}:
+                            </td>
+                            <td class="border-0">{{dynamicParameter.parameterName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-weight-bold text-right border-0">{{"InputType" | localize}}:</td>
+                            <td class="border-0">{{dynamicParameter.inputType}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-weight-bold text-right border-0">{{"Permission" | localize}}:</td>
+                            <td class="border-0">{{dynamicParameter.permission}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <dynamic-parameter-value *ngIf="hasValues" [dynamicParameterId]="dynamicParameterId">
+            </dynamic-parameter-value>
+
+            <create-or-edit-dynamic-parameter-modal #createOrEditDynamicParameter (modalSave)="loadData()">
+            </create-or-edit-dynamic-parameter-modal>
+        </div>
+    </div>
+</div>
